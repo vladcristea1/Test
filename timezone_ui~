@@ -14,7 +14,7 @@ end () {
 while true
 do
        $DIALOG --inputbox "Insert city(Continent/City):" 8 35 2> $FILE1 ||end
-       if cat $FILE1 | timezone_ex > $FILE2 2>$ERROR
+       if cat $FILE1 | /home/User/TimezoneProject/Test/timezone_ex > $FILE2 2>$ERROR
         then
                 MSG="Result: `cat $FILE2`\n\nContinue?"
                 $DIALOG --yesno "$MSG" 7 20 || end
