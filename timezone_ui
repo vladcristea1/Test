@@ -13,8 +13,13 @@ end () {
 
 while true
 do
-        $DIALOG --inputbox "Insert city(Continent/City):" 8 35 2> $FILE1 || end
-        export TZ=`cat $FILE1`
-	MSG="Date: `date` \n\n Continue?"
-	$DIALOG --yesno "$MSG" 8 50 || end
+       $DIALOG --inputbox "Insert city(Continent/City):" 8 35 2> $FILE1 ||end
+       if cat $FILE1 | /home/User/TimezoneProject/Test/timezone_ex > $FILE2 2>$ERROR
+        then
+                MSG="Result: `cat $FILE2`\n\nContinue?"
+                $DIALOG --yesno "$MSG" 7 20 || end
+        else
+                MSG="Error:\n\n`cat $ERROR`\n\nContinue?"
+                $DIALOG --yesno "$MSG" 10 35 || end
+        fi
 done

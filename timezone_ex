@@ -3,7 +3,7 @@
 FILE=/tmp/calc-$$
 
 read EXPR
-export TZ=EXPR
+export TZ=$EXPR
 echo date > $FILE
 sh $FILE
 EXIT_STATUS=$?
