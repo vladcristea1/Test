@@ -1,0 +1,9 @@
+#!/bin/sh
+
+export TZ="$1"
+date 
+
+exit $EXIT_STATUS
+
+
+ 

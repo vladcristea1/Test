@@ -1,0 +1,25 @@
+
+        unless (@command) {
+
+                # we didn't find the dialog binary, exit(254) with a message
+                # to STDERR.
+
+                print STDERR "missing DISPLAY and a console dialog could".
+                             " not be found.\n";
+
+                # exit code 254 is used because 255, 1, 2, 3 are used by Zenity
+                # and cDialog. This error, is a very _bad_ error so it's semi-
+                # non-standard at 254.
+
+                exit(254);
+
+        }
+
+        # all is well if we've made it this far
+
+        # so join the arguments double-quoting things so that proper shell
+        # notation is saved.
+
+        push @command, @ARGV;
+:
+
